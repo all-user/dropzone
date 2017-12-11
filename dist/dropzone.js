@@ -1081,8 +1081,10 @@ var Dropzone = function (_Emitter) {
       };
     }
 
-    _this.options.method = _this.options.method.toUpperCase();
-
+    if (typeof _this.options.method === 'string') {
+      _this.options.method = _this.options.method.toUpperCase();
+    }
+    
     if ((fallback = _this.getExistingFallback()) && fallback.parentNode) {
       // Remove the fallback
       fallback.parentNode.removeChild(fallback);
